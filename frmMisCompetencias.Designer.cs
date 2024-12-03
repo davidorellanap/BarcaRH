@@ -38,7 +38,7 @@
             this.competenciasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.competenciasTableAdapter = new BarcaRH.BarcaRHBDDataSetTableAdapters.CompetenciasTableAdapter();
             this.dataGridViewCompetencias = new System.Windows.Forms.DataGridView();
-            this.btnEliminarHabilidad = new System.Windows.Forms.Button();
+            this.btnEliminarCompetencia = new System.Windows.Forms.Button();
             this.btnAgregarCompetencia = new System.Windows.Forms.Button();
             this.empleadosCompetenciasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.empleadosCompetenciasTableAdapter = new BarcaRH.BarcaRHBDDataSetTableAdapters.EmpleadosCompetenciasTableAdapter();
@@ -123,14 +123,15 @@
             this.dataGridViewCompetencias.Size = new System.Drawing.Size(417, 150);
             this.dataGridViewCompetencias.TabIndex = 8;
             // 
-            // btnEliminarHabilidad
+            // btnEliminarCompetencia
             // 
-            this.btnEliminarHabilidad.Location = new System.Drawing.Point(650, 415);
-            this.btnEliminarHabilidad.Name = "btnEliminarHabilidad";
-            this.btnEliminarHabilidad.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminarHabilidad.TabIndex = 10;
-            this.btnEliminarHabilidad.Text = "Eliminar";
-            this.btnEliminarHabilidad.UseVisualStyleBackColor = true;
+            this.btnEliminarCompetencia.Location = new System.Drawing.Point(650, 415);
+            this.btnEliminarCompetencia.Name = "btnEliminarCompetencia";
+            this.btnEliminarCompetencia.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarCompetencia.TabIndex = 10;
+            this.btnEliminarCompetencia.Text = "Eliminar";
+            this.btnEliminarCompetencia.UseVisualStyleBackColor = true;
+            this.btnEliminarCompetencia.Click += new System.EventHandler(this.btnEliminarHabilidad_Click);
             // 
             // btnAgregarCompetencia
             // 
@@ -174,7 +175,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnEliminarHabilidad);
+            this.Controls.Add(this.btnEliminarCompetencia);
             this.Controls.Add(this.btnAgregarCompetencia);
             this.Controls.Add(this.dataGridViewCompetencias);
             this.Controls.Add(this.cmbNivelDestreza);
@@ -204,7 +205,7 @@
         private System.Windows.Forms.BindingSource competenciasBindingSource;
         private BarcaRHBDDataSetTableAdapters.CompetenciasTableAdapter competenciasTableAdapter;
         private System.Windows.Forms.DataGridView dataGridViewCompetencias;
-        private System.Windows.Forms.Button btnEliminarHabilidad;
+        private System.Windows.Forms.Button btnEliminarCompetencia;
         private System.Windows.Forms.Button btnAgregarCompetencia;
         private System.Windows.Forms.BindingSource empleadosCompetenciasBindingSource;
         private BarcaRHBDDataSetTableAdapters.EmpleadosCompetenciasTableAdapter empleadosCompetenciasTableAdapter;

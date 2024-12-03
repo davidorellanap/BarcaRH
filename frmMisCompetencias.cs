@@ -126,5 +126,49 @@ namespace BarcaRH
             }
         }
 
+        private void btnEliminarHabilidad_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridViewCompetencias.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Por favor, selecciona una competencia para eliminar.");
+                    return;
+                }
+
+                // Obtener el código de la competencia seleccionada
+                int codigoCompetencia = Convert.ToInt32(dataGridViewCompetencias.SelectedRows[0].Cells["codigoCompetenciaDataGridViewTextBoxColumn"].Value);
+
+                string connectionString = "Server=SV-11L5AN0\\SQLEXPRESS;Database=BarcaRHBD;Trusted_Connection=True;Encrypt=True;TrustServerCertificate=True;";
+                DatabaseHelper dbHelper = new DatabaseHelper(connectionString);
+
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+                    new SqlParameter("@CodigoEmpleado", SqlDbType.Int) { Value = SesionActual.CodigoEmpleado },
+                    new SqlParameter("@CodigoCompetencia", SqlDbType.Int) { Value = codigoCompetencia }
+                };
+
+                // Confirmar la eliminación
+                var confirmResult = MessageBox.Show("¿Estás seguro de que deseas eliminar esta competencia?",
+                                                    "Confirmar Eliminación",
+                                                    MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.No)
+                {
+                    return;
+                }
+
+                int rowsAffected = dbHelper.ExecuteNonQuery("EliminarEmpleadoCompetencia", parameters);
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Competencia eliminada exitosamente.");
+                    CargarMisCompetencias(); // Actualiza el DataGridView
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar la competencia: {ex.Message}");
+            }
+        }
     }
 }
