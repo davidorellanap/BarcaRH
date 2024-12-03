@@ -119,5 +119,32 @@ namespace BarcaRH
             };
             form.Show();
         }
+
+        private void empleadosReferenciasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMisReferencias form = new frmMisReferencias
+            {
+                MdiParent = this // Establece el formulario principal como contenedor
+            };
+            form.Show();
+        }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReportes form = new frmReportes
+            {
+                MdiParent = this // Establece el formulario principal como contenedor
+            };
+            form.Show();
+        }
+
+        private void integrantesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIntegrantes form = new frmIntegrantes
+            {
+                MdiParent = this // Establece el formulario principal como contenedor
+            };
+            form.Show();
+        }
     }
 }
