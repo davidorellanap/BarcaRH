@@ -8,8 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using OfficeOpenXml;
+using OfficeOpenXml.Table; // Asegúrate de incluir esto si usas tablas.
 using System.IO;
 using System.Data.SqlClient;
+using LicenseContext = OfficeOpenXml.LicenseContext;
 
 namespace BarcaRH
 {
@@ -24,6 +26,9 @@ namespace BarcaRH
         {
             try
             {
+                // Configurar la licencia para EPPlus (no comercial)
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
                 // Obtener los datos de los empleados junto con las relaciones (habilidades, competencias, títulos, etc.)
                 string connectionString = "Server=SV-11L5AN0\\SQLEXPRESS;Database=BarcaRHBD;Trusted_Connection=True;Encrypt=True;TrustServerCertificate=True;";
                 DatabaseHelper dbHelper = new DatabaseHelper(connectionString);
